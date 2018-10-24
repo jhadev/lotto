@@ -15,7 +15,7 @@ let numberGenerator = function(arr) {
 };
 
 numberGenerator(lotteryNumbers)
-lotteryNumbers.sort()
+lotteryNumbers.sort(function(a, b){return a - b})
 
 let mega = Math.floor(Math.random() * 25 + 1);
 lotteryNumbers.push(mega)
