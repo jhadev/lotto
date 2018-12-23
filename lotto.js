@@ -37,11 +37,11 @@ $("#pick4").on("click", event => {
 $("#pick5").on("click", event => {
   event.preventDefault();
 
-  let lotteryNumbers = [];
+  const lotteryNumbers = [];
 
-  let numberGenerator = arr => {
+  const numberGenerator = arr => {
     if (arr.length >= 5) return;
-    let newNumber = Math.floor(Math.random() * 43 + 1);
+    const newNumber = Math.floor(Math.random() * 43 + 1);
     if (arr.indexOf(newNumber) < 0) {
       arr.push(newNumber);
     }
@@ -49,11 +49,11 @@ $("#pick5").on("click", event => {
   };
 
   numberGenerator(lotteryNumbers);
-  lotteryNumbers.sort(function (a, b) {
+  lotteryNumbers.sort((a, b) => {
     return a - b;
   });
 
-  let row = $("<div>");
+  const row = $("<div>");
   row.addClass("numbers");
 
   row.append(`<p>${lotteryNumbers.join(", ")}</p>`);
@@ -64,11 +64,11 @@ $("#pick5").on("click", event => {
 $("#pick6").on("click", event => {
   event.preventDefault();
 
-  let lotteryNumbers = [];
+  const lotteryNumbers = [];
 
-  let numberGenerator = arr => {
+  const numberGenerator = arr => {
     if (arr.length >= 6) return;
-    let newNumber = Math.floor(Math.random() * 49 + 1);
+    const newNumber = Math.floor(Math.random() * 49 + 1);
     if (arr.indexOf(newNumber) < 0) {
       arr.push(newNumber);
     }
@@ -76,11 +76,11 @@ $("#pick6").on("click", event => {
   };
 
   numberGenerator(lotteryNumbers);
-  lotteryNumbers.sort(function (a, b) {
+  lotteryNumbers.sort((a, b) => {
     return a - b;
   });
 
-  let row = $("<div>");
+  const row = $("<div>");
   row.addClass("numbers");
 
   row.append(`<p>${lotteryNumbers.join(", ")}</p>`);
@@ -91,11 +91,11 @@ $("#pick6").on("click", event => {
 $("#mega").on("click", event => {
   event.preventDefault();
 
-  let lotteryNumbers = [];
+  const lotteryNumbers = [];
 
-  let numberGenerator = arr => {
+  const numberGenerator = arr => {
     if (arr.length >= 5) return;
-    let newNumber = Math.floor(Math.random() * 75 + 1);
+    const newNumber = Math.floor(Math.random() * 75 + 1);
     if (arr.indexOf(newNumber) < 0) {
       arr.push(newNumber);
     }
@@ -103,14 +103,15 @@ $("#mega").on("click", event => {
   };
 
   numberGenerator(lotteryNumbers);
-  lotteryNumbers.sort(function (a, b) {
+  lotteryNumbers.sort((a, b) => {
     return a - b;
   });
 
-  let mega = Math.floor(Math.random() * 25 + 1);
+  const mega = Math.floor(Math.random() * 25 + 1);
+
   lotteryNumbers.push(mega);
 
-  let row = $("<div>");
+  const row = $("<div>");
   row.addClass("numbers");
 
   row.append(`<p>${lotteryNumbers.join(", ")}</p>`);
@@ -121,11 +122,11 @@ $("#mega").on("click", event => {
 $("#power").on("click", event => {
   event.preventDefault();
 
-  let lotteryNumbers = [];
+  const lotteryNumbers = [];
 
-  let numberGenerator = arr => {
+  const numberGenerator = arr => {
     if (arr.length >= 5) return;
-    let newNumber = Math.floor(Math.random() * 69 + 1);
+    const newNumber = Math.floor(Math.random() * 69 + 1);
     if (arr.indexOf(newNumber) < 0) {
       arr.push(newNumber);
     }
@@ -133,14 +134,14 @@ $("#power").on("click", event => {
   };
 
   numberGenerator(lotteryNumbers);
-  lotteryNumbers.sort(function (a, b) {
+  lotteryNumbers.sort((a, b) => {
     return a - b;
   });
 
-  let mega = Math.floor(Math.random() * 26 + 1);
+  const mega = Math.floor(Math.random() * 26 + 1);
   lotteryNumbers.push(mega);
 
-  let row = $("<div>");
+  const row = $("<div>");
   row.addClass("numbers");
 
   row.append(`<p>${lotteryNumbers.join(", ")}</p>`);
