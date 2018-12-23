@@ -148,3 +148,7 @@ $("#power").on("click", event => {
 
   $("#powerball").prepend(row);
 });
+
+$(".clear").click(() => {
+  $(".numbers").empty();
+});
