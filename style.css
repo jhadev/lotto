@@ -3,9 +3,11 @@
   font-size: 20px;
 }
 
-.clear {
+.clear,
+.generate {
   margin-bottom: -25px;
   margin-top: 10px;
+  margin-left: 2px;
 }
 
 .last-num {

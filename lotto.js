@@ -65,6 +65,16 @@ $(".clear").click(() => {
   $(".numbers").empty();
 });
 
+$(".generate").on("click", event => {
+  event.preventDefault();
+  genPickThree()
+  genPickFour()
+  genPickFive()
+  genPickSix()
+  genMega()
+  genPowerball();
+});
+
 //START ALL GENERATOR FUNCTIONS
 
 //pick 3 function
