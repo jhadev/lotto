@@ -9,12 +9,18 @@ $("#pick3").on("click", event => {
   pick3.push(first, second, third);
 
   const row = $("<div>");
-  row.addClass("numbers");
+  row.addClass("numbers clear3");
 
-  row.append(`<p>${pick3.join("")}</p>`);
+  row.append(`<p>${pick3.join("")}</p><hr>`);
 
   $("#pick-3").prepend(row);
 });
+
+$(".clear-3").on("click", event => {
+  console.log("clicked")
+  event.preventDefault();
+  $(".clear3").empty();
+})
 
 $("#pick4").on("click", event => {
   event.preventDefault();
@@ -27,12 +33,17 @@ $("#pick4").on("click", event => {
   pick4.push(first, second, third, fourth);
 
   const row = $("<div>");
-  row.addClass("numbers");
+  row.addClass("numbers clear4");
 
-  row.append(`<p>${pick4.join("")}</p>`);
+  row.append(`<p>${pick4.join("")}</p><hr>`);
 
   $("#pick-4").prepend(row);
 });
+
+$(".clear-4").on("click", event => {
+  event.preventDefault();
+  $(".clear4").empty();
+})
 
 $("#pick5").on("click", event => {
   event.preventDefault();
@@ -54,12 +65,17 @@ $("#pick5").on("click", event => {
   });
 
   const row = $("<div>");
-  row.addClass("numbers");
+  row.addClass("numbers clear5");
 
-  row.append(`<p>${lotteryNumbers.join(", ")}</p>`);
+  row.append(`<p>${lotteryNumbers.join(", ")}</p><hr>`);
 
   $("#pick-5").prepend(row);
 });
+
+$(".clear-5").on("click", event => {
+  event.preventDefault();
+  $(".clear5").empty();
+})
 
 $("#pick6").on("click", event => {
   event.preventDefault();
@@ -81,12 +97,17 @@ $("#pick6").on("click", event => {
   });
 
   const row = $("<div>");
-  row.addClass("numbers");
+  row.addClass("numbers clear6");
 
-  row.append(`<p>${lotteryNumbers.join(", ")}</p>`);
+  row.append(`<p>${lotteryNumbers.join(", ")}</p><hr>`);
 
   $("#pick-6").prepend(row);
 });
+
+$(".clear-6").on("click", event => {
+  event.preventDefault();
+  $(".clear6").empty();
+})
 
 $("#mega").on("click", event => {
   event.preventDefault();
@@ -112,12 +133,17 @@ $("#mega").on("click", event => {
   lotteryNumbers.push(mega);
 
   const row = $("<div>");
-  row.addClass("numbers");
+  row.addClass("numbers clearmega");
 
-  row.append(`<p>${lotteryNumbers.join(", ")}</p>`);
+  row.append(`<p>${lotteryNumbers.join(", ")}</p><hr>`);
 
   $("#mega-area").prepend(row);
 });
+
+$(".clear-mega").on("click", event => {
+  event.preventDefault();
+  $(".clearmega").empty();
+})
 
 $("#power").on("click", event => {
   event.preventDefault();
@@ -142,12 +168,17 @@ $("#power").on("click", event => {
   lotteryNumbers.push(mega);
 
   const row = $("<div>");
-  row.addClass("numbers");
+  row.addClass("numbers clearpower");
 
-  row.append(`<p>${lotteryNumbers.join(", ")}</p>`);
+  row.append(`<p>${lotteryNumbers.join(", ")}</p><hr>`);
 
   $("#powerball").prepend(row);
 });
+
+$(".clear-power").on("click", event => {
+  event.preventDefault();
+  $(".clearpower").empty();
+})
 
 $(".clear").click(() => {
   $(".numbers").empty();
