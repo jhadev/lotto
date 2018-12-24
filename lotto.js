@@ -1,65 +1,64 @@
-//START ALL CLICK FUNCTIONS
+// //START ALL CLICK FUNCTIONS
 
-$("#pick3").on("click", event => {
-  event.preventDefault();
-  genPickThree();
-});
+// $("#pick3").on("click", event => {
+//   event.preventDefault();
+//   genPickThree();
+// });
 
-$(".clear-3").on("click", event => {
-  console.log("clicked")
-  event.preventDefault();
-  $(".clear3").empty();
-})
+// $(".clear-3").on("click", event => {
+//   event.preventDefault();
+//   $(".clear3").empty();
+// })
 
-$("#pick4").on("click", event => {
-  event.preventDefault();
-  genPickFour();
-});
+// $("#pick4").on("click", event => {
+//   event.preventDefault();
+//   genPickFour();
+// });
 
-$(".clear-4").on("click", event => {
-  event.preventDefault();
-  $(".clear4").empty();
-})
+// $(".clear-4").on("click", event => {
+//   event.preventDefault();
+//   $(".clear4").empty();
+// })
 
-$("#pick5").on("click", event => {
-  event.preventDefault();
-  genPickFive();
-});
+// $("#pick5").on("click", event => {
+//   event.preventDefault();
+//   genPickFive();
+// });
 
-$(".clear-5").on("click", event => {
-  event.preventDefault();
-  $(".clear5").empty();
-})
+// $(".clear-5").on("click", event => {
+//   event.preventDefault();
+//   $(".clear5").empty();
+// })
 
-$("#pick6").on("click", event => {
-  event.preventDefault();
-  genPickSix();
-});
+// $("#pick6").on("click", event => {
+//   event.preventDefault();
+//   genPickSix();
+// });
 
-$(".clear-6").on("click", event => {
-  event.preventDefault();
-  $(".clear6").empty();
-})
+// $(".clear-6").on("click", event => {
+//   event.preventDefault();
+//   $(".clear6").empty();
+// })
 
-$("#mega").on("click", event => {
-  event.preventDefault();
-  genMega();
-});
+// $("#mega").on("click", event => {
+//   event.preventDefault();
+//   genMega();
+// });
 
-$(".clear-mega").on("click", event => {
-  event.preventDefault();
-  $(".clearmega").empty();
-})
+// $(".clear-mega").on("click", event => {
+//   event.preventDefault();
+//   $(".clearmega").empty();
+// })
 
-$("#power").on("click", event => {
-  event.preventDefault();
-  genPowerball();
-});
+// $("#power").on("click", event => {
+//   event.preventDefault();
+//   genPowerball();
+// });
 
-$(".clear-power").on("click", event => {
-  event.preventDefault();
-  $(".clearpower").empty();
-})
+// $(".clear-power").on("click", event => {
+//   event.preventDefault();
+//   $(".clearpower").empty();
+// })
 
 $(".clear").click(() => {
   $(".numbers").empty();
@@ -75,6 +74,50 @@ $(".generate").on("click", event => {
   genPowerball();
 });
 
+
+$(".lotto").on("click", event, game => {
+  event.preventDefault();
+  if (game.target.value === "pick3") {
+    genPickThree()
+  }
+  else if (game.target.value === "pick4") {
+    genPickFour()
+  }
+  else if (game.target.value === "pick5") {
+    genPickFive()
+  }
+  else if (game.target.value === "pick6") {
+    genPickSix()
+  }
+  else if (game.target.value === "mega") {
+    genMega()
+  }
+  else if (game.target.value === "power") {
+    genPowerball()
+  }
+})
+
+$(".cleargame").on("click", event, game => {
+  event.preventDefault();
+  if (game.target.value === "pick3") {
+    $("#pick-3").empty();
+  }
+  else if (game.target.value === "pick4") {
+    $("#pick-4").empty();
+  }
+  else if (game.target.value === "pick5") {
+    $("#pick-5").empty();
+  }
+  else if (game.target.value === "pick6") {
+    $("#pick-6").empty();
+  }
+  else if (game.target.value === "mega") {
+    $("#mega-area").empty();
+  }
+  else if (game.target.value === "power") {
+    $("powerball").empty();
+  }
+})
 //START ALL GENERATOR FUNCTIONS
 
 //pick 3 function
