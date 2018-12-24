@@ -17,46 +17,68 @@ $(".generate").on("click", event => {
 $(".lotto").on("click", event, game => {
   event.preventDefault();
   const { value } = game.target
-  if (value === "pick3") {
-    genPickThree()
-  }
-  else if (value === "pick4") {
-    genPickFour()
-  }
-  else if (value === "pick5") {
-    genPickFive()
-  }
-  else if (value === "pick6") {
-    genPickSix()
-  }
-  else if (value === "mega") {
-    genMega()
-  }
-  else if (value === "power") {
-    genPowerball()
+  switch (value) {
+    case "pick3":
+      genPickThree();
+      break;
+    case "pick4":
+      genPickFour()
+      break;
+    case "pick5":
+      genPickFive();
+      break;
+    case "pick6":
+      genPickSix();
+      break;
+    case "mega":
+      genMega();
+      break;
+    case "power":
+      genPowerball();
+      break;
   }
 })
 
 $(".cleargame").on("click", event, game => {
   event.preventDefault();
   const { value } = game.target
-  if (value === "pick3") {
-    $("#pick-3").empty();
-  }
-  else if (value === "pick4") {
-    $("#pick-4").empty();
-  }
-  else if (value === "pick5") {
-    $("#pick-5").empty();
-  }
-  else if (value === "pick6") {
-    $("#pick-6").empty();
-  }
-  else if (value === "mega") {
-    $("#mega-area").empty();
-  }
-  else if (value === "power") {
-    $("#powerball").empty();
+  // if (value === "pick3") {
+  //   $("#pick-3").empty();
+  // }
+  // else if (value === "pick4") {
+  //   $("#pick-4").empty();
+  // }
+  // else if (value === "pick5") {
+  //   $("#pick-5").empty();
+  // }
+  // else if (value === "pick6") {
+  //   $("#pick-6").empty();
+  // }
+  // else if (value === "mega") {
+  //   $("#mega-area").empty();
+  // }
+  // else if (value === "power") {
+  //   $("#powerball").empty();
+  // }
+  switch (value) {
+    case "pick3":
+      $("#pick-3").empty();
+      break;
+    case "pick4":
+      $("#pick-4").empty();
+      break;
+    case "pick5":
+      $("#pick-5").empty();
+      break;
+    case "pick6":
+      $("#pick-6").empty();
+      break;
+    case "mega":
+      $("#mega-area").empty();
+      break;
+    case "power":
+      $("#powerball").empty();
+      break;
   }
 })
 
