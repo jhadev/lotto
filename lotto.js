@@ -6,17 +6,19 @@ $(".clear").click(() => {
 
 $(".generate").on("click", event => {
   event.preventDefault();
-  genPickThree()
-  genPickFour()
-  genPickFive()
-  genPickSix()
-  genMega()
+  genPickThree();
+  genPickFour();
+  genPickFive();
+  genPickSix();
+  genMega();
   genPowerball();
 });
 
 $(".lotto").on("click", event, game => {
   event.preventDefault();
-  const { value } = game.target
+  const {
+    value
+  } = game.target
   switch (value) {
     case "pick3":
       genPickThree();
@@ -36,30 +38,14 @@ $(".lotto").on("click", event, game => {
     case "power":
       genPowerball();
       break;
-  }
-})
+  };
+});
 
 $(".cleargame").on("click", event, game => {
   event.preventDefault();
-  const { value } = game.target
-  // if (value === "pick3") {
-  //   $("#pick-3").empty();
-  // }
-  // else if (value === "pick4") {
-  //   $("#pick-4").empty();
-  // }
-  // else if (value === "pick5") {
-  //   $("#pick-5").empty();
-  // }
-  // else if (value === "pick6") {
-  //   $("#pick-6").empty();
-  // }
-  // else if (value === "mega") {
-  //   $("#mega-area").empty();
-  // }
-  // else if (value === "power") {
-  //   $("#powerball").empty();
-  // }
+  const {
+    value
+  } = game.target
   switch (value) {
     case "pick3":
       $("#pick-3").empty();
@@ -79,9 +65,8 @@ $(".cleargame").on("click", event, game => {
     case "power":
       $("#powerball").empty();
       break;
-  }
-})
-
+  };
+});
 //START ALL GENERATOR FUNCTIONS
 
 //pick 3 function
@@ -95,7 +80,7 @@ const genPickThree = () => {
   row.addClass("numbers clear3");
   row.append(`<p>${pick3.join("")}</p><hr>`);
   $("#pick-3").prepend(row);
-}
+};
 //pick 4 function
 const genPickFour = () => {
   const pick4 = [];
@@ -108,7 +93,7 @@ const genPickFour = () => {
   row.addClass("numbers clear4");
   row.append(`<p>${pick4.join("")}</p><hr>`);
   $("#pick-4").prepend(row);
-}
+};
 //pick 5 function
 const genPickFive = () => {
   const lotteryNumbers = [];
@@ -129,7 +114,7 @@ const genPickFive = () => {
   row.addClass("numbers clear5");
   row.append(`<p>${lotteryNumbers.join(", ")}</p><hr>`);
   $("#pick-5").prepend(row);
-}
+};
 //pick 6 function
 const genPickSix = () => {
   const lotteryNumbers = [];
@@ -150,7 +135,7 @@ const genPickSix = () => {
   row.addClass("numbers clear6");
   row.append(`<p>${lotteryNumbers.join(", ")}</p><hr>`);
   $("#pick-6").prepend(row);
-}
+};
 //mega millions function
 const genMega = () => {
   const lotteryNumbers = [];
@@ -172,8 +157,7 @@ const genMega = () => {
   row.addClass("numbers clearmega");
   row.append(`<p>${lotteryNumbers.join(", ")}, <span class="last-num">${mega}</span></p><hr>`);
   $("#mega-area").prepend(row);
-
-}
+};
 //powerball function
 const genPowerball = () => {
   const lotteryNumbers = [];
