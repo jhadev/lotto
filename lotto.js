@@ -151,11 +151,11 @@ const genMega = () => {
     return a - b;
   });
   const mega = Math.floor(Math.random() * 25 + 1);
-  lotteryNumbers.push(mega);
   const row = $("<div>");
   row.addClass("numbers clearmega");
-  row.append(`<p>${lotteryNumbers.join(", ")}</p><hr>`);
+  row.append(`<p>${lotteryNumbers.join(", ")}, <span class="last-num">${mega}</span></p><hr>`);
   $("#mega-area").prepend(row);
+
 }
 //powerball function
 const genPowerball = () => {
@@ -173,10 +173,9 @@ const genPowerball = () => {
   lotteryNumbers.sort((a, b) => {
     return a - b;
   });
-  const mega = Math.floor(Math.random() * 26 + 1);
-  lotteryNumbers.push(mega);
+  const power = Math.floor(Math.random() * 26 + 1);
   const row = $("<div>");
   row.addClass("numbers clearpower");
-  row.append(`<p>${lotteryNumbers.join(", ")}</p><hr>`);
+  row.append(`<p>${lotteryNumbers.join(", ")}, <span class="last-num">${power}</span></p><hr>`);
   $("#powerball").prepend(row);
 }

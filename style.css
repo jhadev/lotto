@@ -7,3 +7,8 @@
   margin-bottom: -25px;
   margin-top: 10px;
 }
+
+.last-num {
+  color: green;
+  font-weight: bolder;
+}
