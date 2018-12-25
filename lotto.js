@@ -67,6 +67,8 @@ $(".cleargame").on("click", event, game => {
       break;
   };
 });
+
+
 //START ALL GENERATOR FUNCTIONS
 
 //pick 3 function
@@ -154,8 +156,17 @@ const genMega = () => {
   });
   const mega = Math.floor(Math.random() * 25 + 1);
   const row = $("<div>");
+
+  const className = (mega) => {
+    let classes = "last-num badge m-1 badge-";
+    classes +=
+      mega > 12 ?
+      "success" :
+      "danger";
+    return classes;
+  }
   row.addClass("numbers clearmega");
-  row.append(`<p>${lotteryNumbers.join(", ")}, <span class="last-num">${mega}</span></p><hr>`);
+  row.append(`<p>${lotteryNumbers.join(", ")}, <span class="${className(mega)}">${mega}</span></p><hr>`);
   $("#mega-area").prepend(row);
 };
 //powerball function
@@ -176,7 +187,15 @@ const genPowerball = () => {
   });
   const power = Math.floor(Math.random() * 26 + 1);
   const row = $("<div>");
+  const className = power => {
+    let classes = "last-num badge m-1 badge-";
+    classes +=
+      power > 13 ?
+      "success" :
+      "danger";
+    return classes;
+  }
   row.addClass("numbers clearpower");
-  row.append(`<p>${lotteryNumbers.join(", ")}, <span class="last-num">${power}</span></p><hr>`);
+  row.append(`<p>${lotteryNumbers.join(", ")}, <span class="${className(power)}">${power}</span></p><hr>`);
   $("#powerball").prepend(row);
 };

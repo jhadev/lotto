@@ -11,8 +11,9 @@
 }
 
 .last-num {
-  color: green;
-  font-weight: bolder;
+  color: white;
+  font-weight: bold;
+  font-size: 18px
 }
 
 body {
