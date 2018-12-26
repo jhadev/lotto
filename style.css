@@ -19,3 +19,23 @@
 body {
   font-family: 'Bree Serif', serif;
 }
+
+.sticky-footer {
+  padding: 10px;
+  position: sticky !important;
+  bottom: 0;
+  z-index: 30;
+}
+
+a,
+a:visited {
+  color: white;
+}
+
+.icon-large {
+  font-size: 24px;
+}
+
+.lift {
+  margin-bottom: 10px;
+}
