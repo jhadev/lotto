@@ -95,9 +95,6 @@ const genPickFour = () => {
 const genPickFive = () => {
   const lotteryNumbers = [];
   numberGenerator(lotteryNumbers, 43, 5);
-  lotteryNumbers.sort((a, b) => {
-    return a - b;
-  });
   const row = $("<div>");
   row.addClass("numbers clear5");
   row.append(`<p class="animated zoomIn">${lotteryNumbers.join(", ")}</p><hr>`);
@@ -106,11 +103,7 @@ const genPickFive = () => {
 //pick 6 function
 const genPickSix = () => {
   const lotteryNumbers = [];
-
   numberGenerator(lotteryNumbers, 49, 6);
-  lotteryNumbers.sort((a, b) => {
-    return a - b;
-  });
   const row = $("<div>");
   row.addClass("numbers clear6");
   row.append(`<p class="animated zoomIn">${lotteryNumbers.join(", ")}</p><hr>`);
@@ -120,9 +113,6 @@ const genPickSix = () => {
 const genMega = () => {
   const lotteryNumbers = [];
   numberGenerator(lotteryNumbers, 75, 5);
-  lotteryNumbers.sort((a, b) => {
-    return a - b;
-  });
   const mega = Math.floor(Math.random() * 25 + 1);
   const row = $("<div>");
   const className = mega => {
@@ -142,9 +132,6 @@ const genMega = () => {
 const genPowerball = () => {
   const lotteryNumbers = [];
   numberGenerator(lotteryNumbers, 69, 5);
-  lotteryNumbers.sort((a, b) => {
-    return a - b;
-  });
   const power = Math.floor(Math.random() * 26 + 1);
   const row = $("<div>");
   const className = power => {
@@ -168,4 +155,7 @@ const numberGenerator = (arr, max, count) => {
     arr.push(newNumber);
   }
   numberGenerator(arr, max, count);
+  arr.sort((a, b) => {
+    return a - b;
+  });
 };
