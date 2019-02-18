@@ -16,15 +16,13 @@ $(".generate").on("click", event => {
 
 $(".lotto").on("click", event, game => {
   event.preventDefault();
-  const {
-    value
-  } = game.target
+  const { value } = game.target;
   switch (value) {
     case "pick3":
       genPickThree();
       break;
     case "pick4":
-      genPickFour()
+      genPickFour();
       break;
     case "pick5":
       genPickFive();
@@ -38,14 +36,12 @@ $(".lotto").on("click", event, game => {
     case "power":
       genPowerball();
       break;
-  };
+  }
 });
 
 $(".cleargame").on("click", event, game => {
   event.preventDefault();
-  const {
-    value
-  } = game.target
+  const { value } = game.target;
   switch (value) {
     case "pick3":
       $("#pick-3").empty();
@@ -65,7 +61,7 @@ $(".cleargame").on("click", event, game => {
     case "power":
       $("#powerball").empty();
       break;
-  };
+  }
 });
 
 //START ALL GENERATOR FUNCTIONS
@@ -98,16 +94,7 @@ const genPickFour = () => {
 //pick 5 function
 const genPickFive = () => {
   const lotteryNumbers = [];
-  const numberGenerator = arr => {
-    if (arr.length >= 5)
-      return;
-    const newNumber = Math.floor(Math.random() * 43 + 1);
-    if (arr.indexOf(newNumber) < 0) {
-      arr.push(newNumber);
-    }
-    numberGenerator(arr);
-  };
-  numberGenerator(lotteryNumbers);
+  numberGenerator(lotteryNumbers, 43, 5);
   lotteryNumbers.sort((a, b) => {
     return a - b;
   });
@@ -119,16 +106,8 @@ const genPickFive = () => {
 //pick 6 function
 const genPickSix = () => {
   const lotteryNumbers = [];
-  const numberGenerator = arr => {
-    if (arr.length >= 6)
-      return;
-    const newNumber = Math.floor(Math.random() * 49 + 1);
-    if (arr.indexOf(newNumber) < 0) {
-      arr.push(newNumber);
-    }
-    numberGenerator(arr);
-  };
-  numberGenerator(lotteryNumbers);
+
+  numberGenerator(lotteryNumbers, 49, 6);
   lotteryNumbers.sort((a, b) => {
     return a - b;
   });
@@ -140,16 +119,7 @@ const genPickSix = () => {
 //mega millions function
 const genMega = () => {
   const lotteryNumbers = [];
-  const numberGenerator = arr => {
-    if (arr.length >= 5)
-      return;
-    const newNumber = Math.floor(Math.random() * 75 + 1);
-    if (arr.indexOf(newNumber) < 0) {
-      arr.push(newNumber);
-    }
-    numberGenerator(arr);
-  };
-  numberGenerator(lotteryNumbers);
+  numberGenerator(lotteryNumbers, 75, 5);
   lotteryNumbers.sort((a, b) => {
     return a - b;
   });
@@ -157,29 +127,21 @@ const genMega = () => {
   const row = $("<div>");
   const className = mega => {
     let classes = "last-num badge m-1 badge-";
-    classes +=
-      mega > 12 ?
-      "success" :
-      "danger";
+    classes += mega > 12 ? "success" : "danger";
     return classes;
-  }
+  };
   row.addClass("numbers clearmega");
-  row.append(`<p class="animated zoomIn">${lotteryNumbers.join(", ")}, <span class="${className(mega)}">${mega}</span></p><hr>`);
+  row.append(
+    `<p class="animated zoomIn">${lotteryNumbers.join(
+      ", "
+    )}, <span class="${className(mega)}">${mega}</span></p><hr>`
+  );
   $("#mega-area").prepend(row);
 };
 //powerball function
 const genPowerball = () => {
   const lotteryNumbers = [];
-  const numberGenerator = arr => {
-    if (arr.length >= 5)
-      return;
-    const newNumber = Math.floor(Math.random() * 69 + 1);
-    if (arr.indexOf(newNumber) < 0) {
-      arr.push(newNumber);
-    }
-    numberGenerator(arr);
-  };
-  numberGenerator(lotteryNumbers);
+  numberGenerator(lotteryNumbers, 69, 5);
   lotteryNumbers.sort((a, b) => {
     return a - b;
   });
@@ -187,13 +149,23 @@ const genPowerball = () => {
   const row = $("<div>");
   const className = power => {
     let classes = "last-num badge m-1 badge-";
-    classes +=
-      power > 13 ?
-      "success" :
-      "danger";
+    classes += power > 13 ? "success" : "danger";
     return classes;
-  }
+  };
   row.addClass("numbers clearpower");
-  row.append(`<p class="animated zoomIn">${lotteryNumbers.join(", ")}, <span class="${className(power)}">${power}</span></p><hr>`);
+  row.append(
+    `<p class="animated zoomIn">${lotteryNumbers.join(
+      ", "
+    )}, <span class="${className(power)}">${power}</span></p><hr>`
+  );
   $("#powerball").prepend(row);
+};
+
+const numberGenerator = (arr, max, count) => {
+  if (arr.length >= count) return;
+  const newNumber = Math.floor(Math.random() * max + 1);
+  if (arr.indexOf(newNumber) < 0) {
+    arr.push(newNumber);
+  }
+  numberGenerator(arr, max, count);
 };
