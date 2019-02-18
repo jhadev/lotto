@@ -115,11 +115,6 @@ const genMega = () => {
   numberGenerator(lotteryNumbers, 75, 5);
   const mega = Math.floor(Math.random() * 25 + 1);
   const row = $("<div>");
-  const className = mega => {
-    let classes = "last-num badge m-1 badge-";
-    classes += mega > 12 ? "success" : "danger";
-    return classes;
-  };
   row.addClass("numbers clearmega");
   row.append(
     `<p class="animated zoomIn">${lotteryNumbers.join(
@@ -134,11 +129,6 @@ const genPowerball = () => {
   numberGenerator(lotteryNumbers, 69, 5);
   const power = Math.floor(Math.random() * 26 + 1);
   const row = $("<div>");
-  const className = power => {
-    let classes = "last-num badge m-1 badge-";
-    classes += power > 13 ? "success" : "danger";
-    return classes;
-  };
   row.addClass("numbers clearpower");
   row.append(
     `<p class="animated zoomIn">${lotteryNumbers.join(
@@ -158,4 +148,10 @@ const numberGenerator = (arr, max, count) => {
   arr.sort((a, b) => {
     return a - b;
   });
+};
+
+const className = ball => {
+  let classes = "last-num badge m-1 badge-";
+  classes += ball > 13 ? "success" : "danger";
+  return classes;
 };
