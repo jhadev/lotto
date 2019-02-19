@@ -14,9 +14,9 @@ $(".generate").on("click", event => {
   genPowerball();
 });
 
-$(".lotto").on("click", event, game => {
+$(".lotto").on("click", event => {
   event.preventDefault();
-  const { value } = game.target;
+  const { value } = event.target;
   switch (value) {
     case "pick3":
       genPickThree();
@@ -39,29 +39,10 @@ $(".lotto").on("click", event, game => {
   }
 });
 
-$(".cleargame").on("click", event, game => {
+$(".cleargame").on("click", event => {
   event.preventDefault();
-  const { value } = game.target;
-  switch (value) {
-    case "pick3":
-      $("#pick-3").empty();
-      break;
-    case "pick4":
-      $("#pick-4").empty();
-      break;
-    case "pick5":
-      $("#pick-5").empty();
-      break;
-    case "pick6":
-      $("#pick-6").empty();
-      break;
-    case "mega":
-      $("#mega-area").empty();
-      break;
-    case "power":
-      $("#powerball").empty();
-      break;
-  }
+  const { value } = event.target;
+  $(`.${value}`).empty();
 });
 
 //START ALL GENERATOR FUNCTIONS
@@ -76,7 +57,7 @@ const genPickThree = () => {
   const row = $("<div>");
   row.addClass("numbers clear3");
   row.append(`<p class="animated zoomIn">${pick3.join("")}</div><hr>`);
-  $("#pick-3").prepend(row);
+  $(".pick3").prepend(row);
 };
 //pick 4 function
 const genPickFour = () => {
@@ -89,7 +70,7 @@ const genPickFour = () => {
   const row = $("<div>");
   row.addClass("numbers clear4");
   row.append(`<p class="animated zoomIn">${pick4.join("")}</p><hr>`);
-  $("#pick-4").prepend(row);
+  $(".pick4").prepend(row);
 };
 //pick 5 function
 const genPickFive = () => {
@@ -98,7 +79,7 @@ const genPickFive = () => {
   const row = $("<div>");
   row.addClass("numbers clear5");
   row.append(`<p class="animated zoomIn">${lotteryNumbers.join(", ")}</p><hr>`);
-  $("#pick-5").prepend(row);
+  $(".pick5").prepend(row);
 };
 //pick 6 function
 const genPickSix = () => {
@@ -107,7 +88,7 @@ const genPickSix = () => {
   const row = $("<div>");
   row.addClass("numbers clear6");
   row.append(`<p class="animated zoomIn">${lotteryNumbers.join(", ")}</p><hr>`);
-  $("#pick-6").prepend(row);
+  $(".pick6").prepend(row);
 };
 //mega millions function
 const genMega = () => {
@@ -121,7 +102,7 @@ const genMega = () => {
       ", "
     )}, <span class="${className(mega)}">${mega}</span></p><hr>`
   );
-  $("#mega-area").prepend(row);
+  $(".mega").prepend(row);
 };
 //powerball function
 const genPowerball = () => {
@@ -135,7 +116,7 @@ const genPowerball = () => {
       ", "
     )}, <span class="${className(power)}">${power}</span></p><hr>`
   );
-  $("#powerball").prepend(row);
+  $(".power").prepend(row);
 };
 
 const numberGenerator = (arr, max, count) => {
