@@ -56,7 +56,9 @@ const genPickThree = () => {
   pick3.push(first, second, third);
   const row = $("<div>");
   row.addClass("numbers clear3");
-  row.append(`<p class="animated zoomIn">${pick3.join("")}</div><hr>`);
+  row.append(
+    `<p class="animated zoomIn text-center">${pick3.join("")}</div><hr>`
+  );
   $(".pick3").prepend(row);
 };
 //pick 4 function
@@ -69,7 +71,9 @@ const genPickFour = () => {
   pick4.push(first, second, third, fourth);
   const row = $("<div>");
   row.addClass("numbers clear4");
-  row.append(`<p class="animated zoomIn">${pick4.join("")}</p><hr>`);
+  row.append(
+    `<p class="animated zoomIn text-center">${pick4.join("")}</p><hr>`
+  );
   $(".pick4").prepend(row);
 };
 //pick 5 function
@@ -78,7 +82,11 @@ const genPickFive = () => {
   numberGenerator(lotteryNumbers, 43, 5);
   const row = $("<div>");
   row.addClass("numbers clear5");
-  row.append(`<p class="animated zoomIn">${lotteryNumbers.join(", ")}</p><hr>`);
+  row.append(
+    `<p class="animated zoomIn text-center">${lotteryNumbers.join(
+      ", "
+    )}</p><hr>`
+  );
   $(".pick5").prepend(row);
 };
 //pick 6 function
@@ -87,7 +95,11 @@ const genPickSix = () => {
   numberGenerator(lotteryNumbers, 49, 6);
   const row = $("<div>");
   row.addClass("numbers clear6");
-  row.append(`<p class="animated zoomIn">${lotteryNumbers.join(", ")}</p><hr>`);
+  row.append(
+    `<p class="animated zoomIn text-center">${lotteryNumbers.join(
+      ", "
+    )}</p><hr>`
+  );
   $(".pick6").prepend(row);
 };
 //mega millions function
@@ -98,7 +110,7 @@ const genMega = () => {
   const row = $("<div>");
   row.addClass("numbers clearmega");
   row.append(
-    `<p class="animated zoomIn">${lotteryNumbers.join(
+    `<p class="animated zoomIn text-center">${lotteryNumbers.join(
       ", "
     )}, <span class="${className(mega)}">${mega}</span></p><hr>`
   );
@@ -112,7 +124,7 @@ const genPowerball = () => {
   const row = $("<div>");
   row.addClass("numbers clearpower");
   row.append(
-    `<p class="animated zoomIn">${lotteryNumbers.join(
+    `<p class="animated zoomIn text-center">${lotteryNumbers.join(
       ", "
     )}, <span class="${className(power)}">${power}</span></p><hr>`
   );
