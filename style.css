@@ -47,3 +47,13 @@ a:visited {
 .lift {
   margin-bottom: 10px;
 }
+
+@media screen and (max-width: 500px) {
+  .numbers {
+    font-size: 26px;
+  }
+
+  h4 {
+    font-size: 28px;
+  }
+}
