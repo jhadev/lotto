@@ -1,5 +1,4 @@
 .numbers {
-  font-weight: bold;
   font-size: 22px;
 }
 
@@ -33,6 +32,11 @@ body {
 
 .spacer {
   flex: 1;
+}
+
+hr {
+  border-color: white;
+  background-color: white;
 }
 
 a,
