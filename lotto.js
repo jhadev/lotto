@@ -45,9 +45,30 @@ $(".cleargame").on("click", event => {
   $(`.${value}`).empty();
 });
 
-//Function to pad zeros of pick 3 and 4
+//Function to pad zeros on pick 3 and 4
 const pad = (number, zeros, length) => {
   return number <= 9999 ? `${zeros}${number}`.slice(length) : number;
+};
+
+//generator function to not allow duplicates and sort on 5,6, mega, and powerball
+const numberGenerator = (arr, max, count) => {
+  if (arr.length >= count) return;
+  const newNumber = Math.floor(Math.random() * max + 1);
+  if (arr.indexOf(newNumber) < 0) {
+    arr.push(newNumber);
+  }
+  numberGenerator(arr, max, count);
+  arr.sort((a, b) => {
+    return a - b;
+  });
+};
+
+//function for dynamically changing class names
+
+const className = (ball, num) => {
+  let classes = "last-num badge m-1 badge-";
+  classes += ball > num ? "success" : "danger";
+  return classes;
 };
 
 //START ALL GENERATOR FUNCTIONS
@@ -116,7 +137,7 @@ const genMega = () => {
   row.append(
     `<p class="animated zoomIn text-center">${lotteryNumbers.join(
       ", "
-    )}, <span class="${className(mega)}">${mega}</span></p><hr>`
+    )}, <span class="${className(mega, 12)}">${mega}</span></p><hr>`
   );
   $(".mega").prepend(row);
 };
@@ -130,25 +151,7 @@ const genPowerball = () => {
   row.append(
     `<p class="animated zoomIn text-center">${lotteryNumbers.join(
       ", "
-    )}, <span class="${className(power)}">${power}</span></p><hr>`
+    )}, <span class="${className(power, 13)}">${power}</span></p><hr>`
   );
   $(".power").prepend(row);
-};
-
-const numberGenerator = (arr, max, count) => {
-  if (arr.length >= count) return;
-  const newNumber = Math.floor(Math.random() * max + 1);
-  if (arr.indexOf(newNumber) < 0) {
-    arr.push(newNumber);
-  }
-  numberGenerator(arr, max, count);
-  arr.sort((a, b) => {
-    return a - b;
-  });
-};
-
-const className = ball => {
-  let classes = "last-num badge m-1 badge-";
-  classes += ball > 13 ? "success" : "danger";
-  return classes;
 };
