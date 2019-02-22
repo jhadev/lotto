@@ -45,34 +45,38 @@ $(".cleargame").on("click", event => {
   $(`.${value}`).empty();
 });
 
+//Function to pad zeros of pick 3 and 4
+const pad = (number, zeros, length) => {
+  return number <= 9999 ? `${zeros}${number}`.slice(length) : number;
+};
+
 //START ALL GENERATOR FUNCTIONS
 
 //pick 3 function
 const genPickThree = () => {
-  const pick3 = [];
-  const first = Math.floor(Math.random() * 9);
-  const second = Math.floor(Math.random() * 9);
-  const third = Math.floor(Math.random() * 9);
-  pick3.push(first, second, third);
+  const randomThree = Math.floor(Math.random() * 999);
   const row = $("<div>");
   row.addClass("numbers clear3");
   row.append(
-    `<p class="animated zoomIn text-center">${pick3.join("")}</div><hr>`
+    `<p class="animated zoomIn text-center">${pad(
+      randomThree,
+      "00",
+      -3
+    )}</div><hr>`
   );
   $(".pick3").prepend(row);
 };
 //pick 4 function
 const genPickFour = () => {
-  const pick4 = [];
-  const first = Math.floor(Math.random() * 9);
-  const second = Math.floor(Math.random() * 9);
-  const third = Math.floor(Math.random() * 9);
-  const fourth = Math.floor(Math.random() * 9);
-  pick4.push(first, second, third, fourth);
+  const randomFour = Math.floor(Math.random() * 9999);
   const row = $("<div>");
   row.addClass("numbers clear4");
   row.append(
-    `<p class="animated zoomIn text-center">${pick4.join("")}</p><hr>`
+    `<p class="animated zoomIn text-center">${pad(
+      randomFour,
+      "000",
+      -4
+    )}</p><hr>`
   );
   $(".pick4").prepend(row);
 };
