@@ -39,6 +39,10 @@ hr {
   background-color: white;
 }
 
+.perm {
+  cursor: pointer;
+}
+
 a,
 a:visited {
   color: white;

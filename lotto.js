@@ -1,7 +1,19 @@
 //START ALL CLICK FUNCTIONS
+$(function() {
+  $('[data-toggle="tooltip"]').tooltip();
+});
 
 $(".clear").click(() => {
   $(".numbers").empty();
+});
+
+$(document).on("click", ".perm", (event, formattedNum) => {
+  event.preventDefault();
+  const { value, id } = event.target;
+  console.log(id);
+  if (value === formattedNum) {
+    $("#" + id).tooltip("show");
+  }
 });
 
 $(".generate").on("click", event => {
@@ -63,6 +75,20 @@ const numberGenerator = (arr, max, count) => {
   });
 };
 
+const permutations = str => {
+  if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
+  return str
+    .split("")
+    .reduce(
+      (acc, letter, i) =>
+        acc.concat(
+          permutations(str.slice(0, i) + str.slice(i + 1)).map(
+            val => letter + val
+          )
+        ),
+      []
+    );
+};
 //function for dynamically changing class names
 
 const className = (ball, num) => {
@@ -77,16 +103,29 @@ const numClass = "animated zoomIn text-light text-center";
 const genPickThree = () => {
   const randomThree = Math.floor(Math.random() * 999);
   const row = $("<div>");
+  const formattedNum = pad(randomThree, "00", -3);
+  let combinations = permutations(formattedNum);
+  console.log(combinations);
   row.addClass("numbers clear3");
-  row.append(`<p class="${numClass}">${pad(randomThree, "00", -3)}</div><hr>`);
+  row.append(
+    `<p class="perm ${numClass}" id="${formattedNum}" value="${formattedNum}" data-toggle="tooltip" data-placement="top" title="${combinations.join(
+      ", "
+    )}">${formattedNum}</div><hr>`
+  );
   $(".pick3").prepend(row);
 };
 //pick 4 function
 const genPickFour = () => {
   const randomFour = Math.floor(Math.random() * 9999);
   const row = $("<div>");
+  const formattedNum = pad(randomFour, "000", -4);
+  let combinations = permutations(formattedNum);
   row.addClass("numbers clear4");
-  row.append(`<p class="${numClass}">${pad(randomFour, "000", -4)}</p><hr>`);
+  row.append(
+    `<p class="perm ${numClass}" id="${formattedNum}" value="${formattedNum}" data-toggle="tooltip" data-placement="top" title="${combinations.join(
+      ", "
+    )}">${formattedNum}</div><hr>`
+  );
   $(".pick4").prepend(row);
 };
 //pick 5 function
