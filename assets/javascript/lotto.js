@@ -112,10 +112,10 @@ const genPickThree = () => {
   const row = $("<div>");
   const formattedNum = pad(randomThree, "00", -3);
   let combinations = permutations(formattedNum);
-  console.log(combinations);
+  let combos = _.uniqBy(combinations);
   row.addClass("numbers clear3");
   row.append(
-    `<p class="perm ${numClass}" id="${formattedNum}" value="${formattedNum}" data-toggle="tooltip" data-placement="top" title="${combinations.join(
+    `<p class="perm ${numClass}" id="${formattedNum}" value="${formattedNum}" data-toggle="tooltip" data-placement="top" data-title="${combos.join(
       ", "
     )}">${formattedNum}</div><hr>`
   );
@@ -127,9 +127,10 @@ const genPickFour = () => {
   const row = $("<div>");
   const formattedNum = pad(randomFour, "000", -4);
   let combinations = permutations(formattedNum);
+  let combos = _.uniqBy(combinations);
   row.addClass("numbers clear4");
   row.append(
-    `<p class="perm ${numClass}" id="${formattedNum}" value="${formattedNum}" data-toggle="tooltip" data-placement="top" title="${combinations.join(
+    `<p class="perm ${numClass}" id="${formattedNum}" value="${formattedNum}" data-toggle="tooltip" data-placement="top" data-title="${combos.join(
       ", "
     )}">${formattedNum}</div><hr>`
   );
