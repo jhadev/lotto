@@ -25,6 +25,13 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: -webkit-linear-gradient(#292E49, #2e5fad) !important;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(#292E49, #2e5fad) !important;
+}
+
+.jumbotron {
+  background: transparent !important;
 }
 
 .sticky-footer {
