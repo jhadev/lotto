@@ -1,5 +1,5 @@
 //intitalize tooltips
-$(function () {
+$(function() {
   $('[data-toggle="tooltip"]').tooltip();
 });
 
@@ -28,19 +28,19 @@ const permutations = str => {
     .split("")
     .reduce(
       (acc, letter, i) =>
-      acc.concat(
-        permutations(str.slice(0, i) + str.slice(i + 1)).map(
-          val => letter + val
-        )
-      ),
+        acc.concat(
+          permutations(str.slice(0, i) + str.slice(i + 1)).map(
+            val => letter + val
+          )
+        ),
       []
     );
 };
 
 //function for dynamically changing class names
 const className = (ball, num) => {
-  let classes = "last-num badge m-1 badge-";
-  classes += ball > num ? "success" : "primary";
+  let classes = "last-num shadow badge m-1 badge-";
+  classes += ball > num ? "primary" : "danger";
   return classes;
 };
 
@@ -130,10 +130,7 @@ $(".clear").on("click", event => {
 
 $(document).on("click", ".perm", (event, formattedNum) => {
   event.preventDefault();
-  const {
-    value,
-    id
-  } = event.target;
+  const { value, id } = event.target;
   if (value === formattedNum) {
     $("#" + id).tooltip("show");
   }
@@ -151,9 +148,7 @@ $(".generate").on("click", event => {
 
 $(".lotto").on("click", event => {
   event.preventDefault();
-  const {
-    value
-  } = event.target;
+  const { value } = event.target;
   switch (value) {
     case "pick3":
       genPickThree();
@@ -176,10 +171,8 @@ $(".lotto").on("click", event => {
   }
 });
 
-$(".cleargame").on("click", event => {
+$(document).on("click", ".cleargame", event => {
   event.preventDefault();
-  const {
-    value
-  } = event.target;
+  const { value } = event.target;
   $(`.${value}`).empty();
 });

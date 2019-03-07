@@ -6,6 +6,10 @@ h4 {
   font-size: 22px;
 }
 
+.cleargame {
+  cursor: pointer;
+}
+
 .clear,
 .generate {
   margin-bottom: -25px;
@@ -14,7 +18,7 @@ h4 {
 }
 
 .last-num {
-  color: white;
+  /* color: white; */
   font-weight: bold;
   font-size: 20px;
 }
@@ -25,13 +29,32 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: -webkit-linear-gradient(#292e49, #2e5fad) !important;
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(#292e49, #2e5fad) !important;
+  background: #283c86;
+  /* fallback for old browsers */
+  background: linear-gradient(to top, #c33764, #1d2671);
+}
+
+.btn-danger,
+.badge-danger {
+  background-color: #c33764 !important;
+  border-color: #c33764 !important;
+}
+
+.badge-primary {
+  background-color: #1d2671 !important;
+  border-color: #1d2671 !important;
 }
 
 .jumbotron {
   background: transparent !important;
+}
+
+.container-fluid {
+  padding: 50px;
+}
+
+.jumbotron-fluid {
+  padding: 40px;
 }
 
 /* .sticky-footer {
