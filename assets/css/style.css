@@ -34,12 +34,7 @@ body {
   background: transparent !important;
 }
 
-/* .sticky-footer {
-  padding: 10px;
-  position: sticky !important;
-  bottom: 0px;
-  z-index: 0;
-} */
+
 
 .spacer {
   flex: 1;
@@ -66,6 +61,25 @@ a:visited {
 .lift {
   margin-bottom: 10px;
 }
+
+/* 
+//DIFF COLORS
+.badge-success {
+  border-color: #292e49 !important;
+  background-color: #292e49 !important;
+}
+
+.btn-danger {
+  border-color: #515a8f !important;
+  background-color: #515a8f !important;
+} 
+
+.sticky-footer {
+  padding: 10px;
+  position: sticky !important;
+  bottom: 0px;
+  z-index: 0;
+} */
 
 @media screen and (max-width: 500px) {
   .numbers {
