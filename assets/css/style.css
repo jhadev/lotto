@@ -25,9 +25,9 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: -webkit-linear-gradient(#292e49, #2e5fad) !important;
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(#292e49, #2e5fad) !important;
+  background: linear-gradient(to top, #2a5298, #1e3c72);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .jumbotron {

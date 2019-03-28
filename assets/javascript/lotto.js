@@ -1,5 +1,5 @@
 //intitalize tooltips
-$(function() {
+$(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
 
@@ -7,6 +7,11 @@ $(function() {
 const pad = (number, zeros, length) => {
   return number <= 9999 ? `${zeros}${number}`.slice(length) : number;
 };
+
+const getRandomInt = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
 
 //generator function to not allow duplicates and sort on 5,6, mega, and powerball
 const numberGenerator = (arr, max, count) => {
@@ -28,11 +33,11 @@ const permutations = str => {
     .split("")
     .reduce(
       (acc, letter, i) =>
-        acc.concat(
-          permutations(str.slice(0, i) + str.slice(i + 1)).map(
-            val => letter + val
-          )
-        ),
+      acc.concat(
+        permutations(str.slice(0, i) + str.slice(i + 1)).map(
+          val => letter + val
+        )
+      ),
       []
     );
 };
@@ -48,14 +53,14 @@ const className = (ball, num) => {
 const numClass = "animated zoomIn text-light text-center";
 //pick 3 function
 const genPickThree = () => {
-  const randomThree = Math.floor(Math.random() * 999);
+  const randomThree = getRandomInt(0, 999);
   const formattedNum = pad(randomThree, "00", -3);
   const row = writeToPage(formattedNum);
   $(".pick3").prepend(row);
 };
 //pick 4 function
 const genPickFour = () => {
-  const randomFour = Math.floor(Math.random() * 9999);
+  const randomFour = getRandomInt(0, 9999);;
   const formattedNum = pad(randomFour, "000", -4);
   const row = writeToPage(formattedNum);
   $(".pick4").prepend(row);
@@ -130,7 +135,10 @@ $(".clear").on("click", event => {
 
 $(document).on("click", ".perm", (event, formattedNum) => {
   event.preventDefault();
-  const { value, id } = event.target;
+  const {
+    value,
+    id
+  } = event.target;
   if (value === formattedNum) {
     $("#" + id).tooltip("show");
   }
@@ -148,7 +156,9 @@ $(".generate").on("click", event => {
 
 $(".lotto").on("click", event => {
   event.preventDefault();
-  const { value } = event.target;
+  const {
+    value
+  } = event.target;
   switch (value) {
     case "pick3":
       genPickThree();
@@ -173,6 +183,8 @@ $(".lotto").on("click", event => {
 
 $(".cleargame").on("click", event => {
   event.preventDefault();
-  const { value } = event.target;
+  const {
+    value
+  } = event.target;
   $(`.${value}`).empty();
 });
